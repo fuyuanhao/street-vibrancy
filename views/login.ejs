@@ -1,0 +1,30 @@
+<%- include header %>
+<div class="container">
+    <form action="" role="form" method="post">
+        <fieldset>
+            <% if(locals.islogin){ %>
+                用户：<h3><%= test %></h3>已经登录<br>
+                <a href="/logout">登出</a>
+            <% }else{ %>
+                <div>
+                    <label for="username">用户名</label>
+                    <div>
+                        <input type="text" id="username" name="username" placeholder="用户名" required>
+                    </div>
+                </div>
+                <div>
+                    <label for="password">密码</label>
+                    <div>
+                        <input type="text" id="password" name="password" placeholder="密码" required>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <button type="submit">登录</button>
+                    </div>
+                </div>
+            <% } %>
+        </fieldset>
+    </form>
+</div>
+<%- include footer %>
