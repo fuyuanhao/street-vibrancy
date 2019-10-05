@@ -13,7 +13,7 @@ function login(req, res, next){
                     req.session.islogin = req.body.username;
                     res.locals.islogin = req.session.islogin;
                     res.cookie('islogin',res.locals.islogin,{maxAge:60000});
-                    res.redirect('/home');
+                    res.redirect('/');
                 }else
                 {
                     res.redirect('/login');
