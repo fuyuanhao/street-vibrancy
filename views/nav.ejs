@@ -1,0 +1,32 @@
+<div class="navbar-default" id="navDIV">
+    <nav class="navbar navbar-default" role="navigation">
+        <!--流式-->
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="/" class="navbar-brand">武汉市街道活力分析原型系统</a>
+            </div>
+            <div>
+                <!-- 向左对齐 -->
+                <ul class="nav navbar-nav" id="meanuUL">
+                    <li><a href="/" title="主页"><span class="glyphicon glyphicon-home"></span>&nbsp;主页</a></li>
+                    <li>
+                        <a href="https://github.com/fuyuanhao/street-vibrancy" title="GitHub" target="_blank">
+                            <span class="glyphicon glyphicon glyphicon-star"></span>&nbsp;GitHub
+                        </a>
+                    </li>
+                </ul>
+                <!-- 向右对齐 -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/"><% if(locals.islogin){ %><span class="glyphicon glyphicon-user">&nbsp;</span>欢迎：&nbsp;<%= test %></a></li>
+                    <li><a href="/logout" class="btn"><span class="glyphicon glyphicon-log-out"></span>退出</a></li>
+                    <% }else{ %>
+                        <li><a href="/reg"><span class="glyphicon glyphicon-user"></span>&nbsp;注册</a></li>
+                        <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span>&nbsp;登录</a></li>
+                    <% } %>
+                    <li><a data-toggle="modal" data-target="#Modal_Contact"><span class="glyphicon glyphicon-envelope"></span>&nbsp;联系我们</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+

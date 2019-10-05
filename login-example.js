@@ -7,7 +7,7 @@ function login(req, res, next){
     db.any("SELECT * FROM userinfo WHERE username = $1", req.body.username)
         .then((data)=> {
             if(data[0] === undefined){
-                res.send('没有该用户');
+                res.render('login',{title:'Log In', promptinfo: '没有该用户'});
             }else{
                 if(data[0].password === req.body.password){
                     req.session.islogin = req.body.username;
@@ -16,7 +16,7 @@ function login(req, res, next){
                     res.redirect('/');
                 }else
                 {
-                    res.redirect('/login');
+                    res.render('login',{title:'Log In', promptinfo: '密码不正确，请重新输入'});
                 }
             }
         })
@@ -26,22 +26,27 @@ function login(req, res, next){
 }
 
 function register(req, res){
+    //判断用户名是否存在
     db.any("SELECT * FROM userinfo WHERE username = $1", req.body.username)
         .then((data)=> {
+            //用户名可用时
             if(data[0] === undefined){
-                db.none('INSERT INTO userinfo(username, password) VALUES($1,$2)', [req.body.username, req.body.password2])
+                //判断两次密码是否输入一致
+                if(req.body.password === req.body.password2) {
+                db.none('INSERT INTO userinfo(username, password, email) VALUES($1,$2,$3)', [req.body.username, req.body.password2, req.body.email])
                     .then(()=>{
-                        db.any("SELECT * FROM userinfo WHERE username = $1", req.body.username)
-                            .then((data)=> {
-                                if(data[0])
-                                    res.send("注册成功");
-                                else
-                                    res.send("注册失败，请重新注册");
-                            })
+                    db.any("SELECT * FROM userinfo WHERE username = $1", req.body.username)
+                        .then((data)=> {
+                            if(data[0])
+                                res.render('reg',{title:'Sign Up', promptinfo: '注册成功，请登录'});
+                            else
+                                res.render('reg',{title:'Sign Up', promptinfo: '注册失败，请重新注册'});
+                        })
                     })
-            } else {
-                res.send("该账号已经存在");
-            }
+                }else
+                    res.render('reg',{title:'Sign Up', promptinfo: '两次输入密码不一致，请重新设置'});
+            } else
+                res.render('reg',{title:'Sign Up', promptinfo: '该用户名已经存在'});
         })
         .catch((error)=> {
             console.log(error);

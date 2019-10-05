@@ -1,30 +1,29 @@
-<%- include header %>
-<div class="container">
-    <form action="" role="form" method="post">
-        <fieldset>
-            <% if(locals.islogin){ %>
-                用户：<h3><%= test %></h3>已经登录<br>
-                <a href="/logout">登出</a>
-            <% }else{ %>
-                <div>
-                    <label for="username">用户名</label>
-                    <div>
-                        <input type="text" id="username" name="username" placeholder="用户名" required>
-                    </div>
+<%- include header.ejs %>
+<%- include nav.ejs %>
+<div class="backgroundF">
+    <div class="container">
+        <form role="form" method="post" class="form-horizontal col-xs-4 col-xs-offset-4">
+            <div class="form-group">
+                <div class="input-group input-group-lg">
+                    <span class="input-group-addon">用&nbsp;户&nbsp;名</span>
+                    <input type="text" id="username" name="username" placeholder="请输入用户名" class="form-control" required>
                 </div>
-                <div>
-                    <label for="password">密码</label>
-                    <div>
-                        <input type="text" id="password" name="password" placeholder="密码" required>
-                    </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group input-group-lg">
+                    <span class="input-group-addon">&nbsp;密&nbsp;&nbsp;&nbsp;&nbsp;码&nbsp;</span>
+                    <input type="password" id="password" name="password" placeholder="请输入密码" class="form-control" required>
                 </div>
-                <div>
-                    <div>
-                        <button type="submit">登录</button>
-                    </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-offset-4">
+                    <button type="submit" class="btn btn-info btn-lg">提交</button>
+                    <button type="reset" class="btn btn-warning btn-lg">重置</button>
                 </div>
-            <% } %>
-        </fieldset>
-    </form>
+            </div>
+            <div class="alert alert-success" role="alert"><%= promptinfo %></div>
+        </form>
+    </div>
 </div>
-<%- include footer %>
+<%- include Modal_Contact.ejs %>
+<%- include footer.ejs %>
