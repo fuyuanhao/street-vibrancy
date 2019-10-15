@@ -6,7 +6,7 @@ body {
   position:fixed;
   height:100%;
   width:100%;
-  padding-top: 170px;
+  padding-top: 130px;
 }
 .navbar{
   margin-bottom: 0px;
@@ -14,3 +14,4 @@ body {
 a {
   color: #00B7FF;
 }
+

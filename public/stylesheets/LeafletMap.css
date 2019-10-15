@@ -1,0 +1,16 @@
+#navDIV{
+    font-weight:bold;
+    font-family: "楷体";
+    //align-items: center;
+}
+#meanuUL{
+    font-size: medium;
+    //font-family: "新宋体";
+}
+#map{
+    height: 800px;
+}
+#mapDIV{
+    padding-left: 0;
+    padding-right: 0;
+ }
