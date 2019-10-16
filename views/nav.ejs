@@ -28,5 +28,37 @@
             </div>
         </div>
     </nav>
+    <nav class="navbar bg-light">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/" title="主页"><i class="fas fa-home"></i>&nbsp;主页</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://github.com/fuyuanhao/street-vibrancy" title="GitHub" target="_blank"><i class="fab fa-github"></i>&nbsp;系统介绍</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/users" title="用户管理"><i class="far fa-address-card"></i>&nbsp;用户管理</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/" title="项目进度"><i class="far fa-calendar-alt"></i>&nbsp;项目进度</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="modal" data-target="#Modal_Contact"><i class="far fa-envelope"></i>&nbsp;联系我们</a>
+            </li>
+        </ul>
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+                <a class="nav-link" href="/"><% if(locals.islogin){ %>欢迎：&nbsp;<%= test %></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/logout" class="btn">退出</a>
+            </li>
+            <% }else{ %>
+                <li class="nav-item"><a class="nav-link" href="/reg"><i class="fas fa-user"></i>&nbsp;注册</a></li>
+                <li class="nav-item"><a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"></i>&nbsp;登录</a></li>
+            <% } %>
+
+        </ul>
+    </nav>
 </div>
 
