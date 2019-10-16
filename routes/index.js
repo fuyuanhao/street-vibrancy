@@ -9,7 +9,7 @@
 
 let express = require('express');
 let router = express.Router();
-let db = require('../login-example.js');
+let db = require('./login-example.js');
 
 router.get('/', function(req, res) {
   if(req.cookies.islogin){
