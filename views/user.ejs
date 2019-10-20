@@ -1,0 +1,61 @@
+<%- include header.ejs %>
+<%- include nav.ejs %>
+<!-- 如果是登录状态，就进入信息查询页面 -->
+<% if(locals.islogin){%>
+    <!-- 按条件查询 -->
+    <div class="container">
+        <div class="alert alert-success" role="alert"><%= promptinfo %></div>
+        <div>
+            <!-- form的action属性规定当表单提交时，向何处发送表单数据 -->
+            <form action="/users/search" method="post">
+                姓名：<input type="text" name="s_username" id="s_username" value="" class="text">&nbsp;&nbsp;
+                电话：<input type="text" name="s_telephone" id="s_telephone" value="" onkeyup="this.value=this.value.replace(/[^\d]/g,'')" class="text">&nbsp;&nbsp;
+                <button id="queryinfo" type="submit"title="查询"><i class="fas fa-search-plus"></i></button>
+            </form>
+        </div>
+    </div>
+    <!-- 用户信息显示的表单 -->
+    <div class="container">
+        <table id="table" data-toggle="table" data-show-export="false" data-pagination="true" data-click-to-select="true" data-toolbar="#toolbar">
+            <thead>
+            <tr>
+                <th data-field="state" data-checkbox="true"></th>
+                <th>编号</th>
+                <th>姓名</th>
+                <th>邮箱</th>
+                <th>电话</th>
+                <th>操作
+                    <a href="/users/add" title="新增"><i class="fas fa-user-plus"></i>&nbsp;新增</a>
+                </th>
+            </tr>
+            </thead>
+            <tbody align="center">
+            <% if(datas.length){ %>
+                <% datas.forEach(function(user){ %>
+                    <tr>
+                        <td data-checkbox="false"></td>
+                        <td><%= user.id %></td>
+                        <td><%= user.username %></td>
+                        <td><%= user.email %></td>
+                        <td><%= user.telephone %></td>
+                        <td>
+                            <div class="btn-group operation">
+                                <a href="/users/update/<%= user.id %>" title="修改"><i class="fas fa-user-edit"></i>&nbsp;修改&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                                <a href="/users/delete/<%= user.id %>" title="删除"><i class="fas fa-user-times"></i>&nbsp;删除</a>
+                            </div>
+                        </td>
+                    </tr>
+                <% }) %>
+            <% } %>
+            </tbody>
+        </table>
+    </div>
+<% }else{ %>
+    <!-- 否则，提示重新登录 -->
+    <div id="myAlert" class="alert alert-warning">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+        <strong>警告！</strong>登录已超时，请登录后访问。
+    </div>
+<% } %>
+<%- include Modal_Contact.ejs%>
+<%- include footer.ejs %>
