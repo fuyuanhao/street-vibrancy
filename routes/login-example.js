@@ -264,6 +264,23 @@ function keepLogin(req, res){
     }
 }
 
+function GDPQuery(req, res){
+    let code = req.query.code;
+    console.log('路由中的code:::' + code);
+    db.any("SELECT * FROM polygon_gdp WHERE polygon_code = $1", code)
+        .then((result) => {
+            if (result[0] === undefined) {
+                res.send('返回空值');
+            } else {
+                res.send(result);
+                console.log("返回结果：" + JSON.stringify(result))
+            }
+        })
+        .catch((err) => {
+            return next(err);
+        });
+}
+
 module.exports = {
     login : login,
     register : register,
@@ -273,6 +290,7 @@ module.exports = {
     deleteUserinfo : deleteUserinfo,
     updateUserinfoGET : updateUserinfoGET,
     updateUserinfoPOST : updateUserinfoPOST,
-    queryUserinfo : queryUserinfo
+    queryUserinfo : queryUserinfo,
+    GDPQuery : GDPQuery
 };
 

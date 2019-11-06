@@ -45,4 +45,6 @@ router.route('/reg')
     })
     .post(db.register);
 
+router.get('/GDPQuery',db.GDPQuery);
+
 module.exports = router;
