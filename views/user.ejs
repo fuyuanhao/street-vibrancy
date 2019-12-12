@@ -10,7 +10,7 @@
             <form action="/users/search" method="post">
                 姓名：<input type="text" name="s_username" id="s_username" value="" class="text">&nbsp;&nbsp;
                 电话：<input type="text" name="s_telephone" id="s_telephone" value="" onkeyup="this.value=this.value.replace(/[^\d]/g,'')" class="text">&nbsp;&nbsp;
-                <button id="queryinfo" type="submit"title="查询"><i class="fas fa-search-plus"></i></button>
+                <button id="queryinfo" type="submit"title="查询"><i class="iconfont iconchaxun"></i></button>
             </form>
         </div>
     </div>
@@ -25,7 +25,7 @@
                 <th>邮箱</th>
                 <th>电话</th>
                 <th>操作
-                    <a href="/users/add" title="新增"><i class="fas fa-user-plus"></i>&nbsp;新增</a>
+                    <a href="/users/add" title="新增"><i class="iconfont icontianjiayonghu"></i>&nbsp;新增</a>
                 </th>
             </tr>
             </thead>
@@ -40,8 +40,8 @@
                         <td><%= user.telephone %></td>
                         <td>
                             <div class="btn-group operation">
-                                <a href="/users/update/<%= user.id %>" title="修改"><i class="fas fa-user-edit"></i>&nbsp;修改&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
-                                <a href="/users/delete/<%= user.id %>" title="删除"><i class="fas fa-user-times"></i>&nbsp;删除</a>
+                                <a href="/users/update/<%= user.id %>" title="修改"><i class="iconfont iconxiugaiyonghuxinxi"></i>&nbsp;修改&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                                <a href="/users/delete/<%= user.id %>" title="删除"><i class="iconfont iconshanchu"></i>&nbsp;删除</a>
                             </div>
                         </td>
                     </tr>

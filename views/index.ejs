@@ -1,5 +1,91 @@
 <%- include header.ejs %>
 <%- include nav.ejs %>
-<div id="viewDiv"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class = "col-md-3">
+            <form action="">
+                <div class="form-group">
+                    <h2>Street Vibrancy</h2>
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-3">
+                            <span class="input-group-text">&nbsp;因&nbsp;素</span>
+                        </div>
+                        <div class="col-md-1"></div>
+                        <div class="col-md-3">
+                            <span class="input-group-text">&nbsp;权&nbsp;重</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">自身特征</span>
+                        <input type="text" id="level" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">街道肌理</span>
+                        <input type="text" id="cross" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">交通可达性</span>
+                        <input type="text" id="transform" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">功能混合度</span>
+                        <input type="text" id="diversity" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">功能密度</span>
+                        <input type="text" id="density" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">全局整合度</span>
+                        <input type="text" id="inte" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">全局选择度</span>
+                        <input type="text" id="nach" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn btn-primary btn-block">提交</button>
+                        </div>
+                        <div class="col-md-1"></div>
+                        <div class="col-md-4">
+                            <button type="reset" class="btn btn-warning btn-block">重置</button>
+                        </div>
+                        <div class="col-md-1"></div>
+                    </div>
+                </div>
+            </form>
+            <h2>风格切换</h2>
+            <div>
+                <button type="button" class="btn btn-primary" name="satellite" id="satellite" onclick="styleToSatellite()">satellite</button>
+                <button type="button" class="btn btn-success" name="osm" id="osm" onclick="styleToOSM()">osm</button>
+                <button type="button" class="btn btn-danger" name="streets-vector" id="streets-vector" onclick="styleToStreetsVector()">streets-vector</button>
+                <button type="button" class="btn btn-warning"name="terrain" id="terrain" onclick="styleToTerrain()">terrain</button>
+            </div>
+        </div>
+        <div class = "col-9">
+            <div id="viewDiv"></div>
+            <span id="layerToggle" class="esri-widget"><input type="checkbox" id="streetsLayer" checked>streets</span>
+        </div>
+    </div>
+</div>
 <%- include Modal_Contact.ejs %>
 <%- include footer.ejs %>
