@@ -2,14 +2,15 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 .backgroundF{
-  background-image: url("../images/wh.jpg");
+  background-image: url("../images/738724.jpg");
   position:fixed;
   height:100%;
   width:100%;
-  padding-top: 170px;
+  padding-top: 150px;
 }
 .navbar{
   margin-bottom: 0px;
+  font-family: 华文黑体;
 }
 #title{
   font-family: '楷体';
@@ -34,5 +35,58 @@ body,
   background-color: white;
   border-radius: 8px;
   padding: 10px;
+  opacity: 0.9;
+}
+h2{
+  font-family: "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
+form{
+  background-color: #D8BFD8;
+  opacity:0.9;
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+.weight-text{
+  text-align: center;
+}
+.weight{
+  text-align: center;
+}
+.weight-value{
+  width: 120px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border: 3px;
+}
+#changeBaseMap {
   opacity: 0.75;
+  padding: 8px;
+  visibility: hidden;
+}
+#layerToggle{
+  visibility: hidden;
+}
+th,td{
+  padding-top: 7px !important;
+  padding-bottom: 7px !important;
+}
+.btn-renderer{
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+#weightofusers{
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+.btn-changebasemap{
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  color:black !important;
+  font-family: 华文黑体 !important;
+  font-weight: bold !important;
+}
+#RadarChart{
+  margin-top: 20px;
 }

@@ -1,36 +1,37 @@
 <%- include header.ejs %>
 <%- include nav.ejs %>
+<body>
 <div class="backgroundF">
     <div class="container-fluid">
         <div class="row">
-            <dvi class="col-md-4"></dvi>
-            <form role="form" method="post" class="form-horizontal col-md-4">
-                <div class="form-group">
-                    <div class="input-group input-group-lg">
-                        <span class="input-group-text">用&nbsp;户&nbsp;名</span>
-                        <input type="text" id="username" name="username" placeholder="请输入用户名" class="form-control" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="input-group input-group-lg">
-                        <span class="input-group-text">&nbsp;密&nbsp;&nbsp;&nbsp;&nbsp;码&nbsp;</span>
-                        <input type="password" id="password" name="password" placeholder="请输入密码" class="form-control" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-2"></div>
-                        <div class="col-md-4">
-                            <button type="submit" class="btn btn-primary btn-block">提交</button>
+            <div class="col-md-7"></div>
+            <form role="form" method="post" class="form-horizontal col-md-3">
+                    <div class="form-group">
+                        <div class="input-group input-group-lg">
+                            <span class="input-group-text">用&nbsp;户&nbsp;名</span>
+                            <input type="text" id="username" name="username" placeholder="请输入用户名" class="form-control" required>
                         </div>
-                        <div class="col-md-1"></div>
-                        <div class="col-md-4">
-                            <button type="reset" class="btn btn-warning btn-block">重置</button>
-                        </div>
-                        <div class="col-md-1"></div>
                     </div>
-                </div>
-                <div class="alert alert-success" role="alert"><%= promptinfo %></div>
+                    <div class="form-group">
+                        <div class="input-group input-group-lg">
+                            <span class="input-group-text">&nbsp;密&nbsp;&nbsp;&nbsp;&nbsp;码&nbsp;</span>
+                            <input type="password" id="password" name="password" placeholder="请输入密码" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-4">
+                                <button type="submit" class="btn btn-primary btn-block">提交</button>
+                            </div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-4">
+                                <button type="reset" class="btn btn-warning btn-block">重置</button>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                    <div class="alert alert-success" role="alert"><%= promptinfo %></div>
             </form>
         </div>
     </div>

@@ -1,85 +1,62 @@
 <%- include header.ejs %>
 <%- include nav.ejs %>
+<body onload="init()">
 <div class="container-fluid">
     <div class="row">
         <div class = "col-md-3">
-            <form action="">
-                <div class="form-group">
-                    <h2>Street Vibrancy</h2>
-                    <div class="row">
-                        <div class="col-md-2"></div>
-                        <div class="col-md-3">
-                            <span class="input-group-text">&nbsp;因&nbsp;素</span>
-                        </div>
-                        <div class="col-md-1"></div>
-                        <div class="col-md-3">
-                            <span class="input-group-text">&nbsp;权&nbsp;重</span>
-                        </div>
-                    </div>
+            <table class="table" id="weightofusers">
+                <thead>
+                <tr>
+                    <th scope="col" style="text-align: center">因素</th>
+                    <th scope="col" style="text-align: center">权重</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="weight">
+                    <td class="weight-text" style="color: #FF4500">自身特性</td>
+                    <td><input type="text" id="self_input" class="weight-value" value="0.123452" required></td>
+                </tr>
+                <tr class="weight">
+                    <td class="weight-text" style="color: #008000">街道肌理</td>
+                    <td><input type="text" id="cross_input"class="weight-value" value="0.143258" required></td>
+                </tr>
+                <tr class="weight">
+                    <td class="weight-text" style="color: #FF1493">交通可达性</td>
+                    <td><input type="text" id="tran_input" class="weight-value" value="0.264523" required></td>
+                </tr>
+                <tr class="weight">
+                    <td class="weight-text" style="color: #4169E1">功能混合度</td>
+                    <td><input type="text" id="diver_input" class="weight-value" value="0.213698" required></td>
+                </tr>
+                <tr class="weight">
+                    <td class="weight-text" style="color: #8B4513">功能密度</td>
+                    <td><input type="text" id="density_input" class="weight-value" value="0.329817" required></td>
+                </tr>
+                <tr class="weight">
+                    <td class="weight-text" style="color: #00FF00">全局整合度</td>
+                    <td><input type="text" id="inte_input" class="weight-value" value="0.163448" required></td>
+                </tr>
+                <tr class="weight">
+                    <td class="weight-text" style="color: #1E90FF">全局选择度</td>
+                    <td><input type="text" id="choice_input"class="weight-value" value="0.178456" required></td>
+                </tr>
+                </tbody>
+            </table>
+
+            <button type="button" class="button button-glow button-rounded button-royal btn-renderer" name="sv_defaultRenderer" id="sv_defaultRenderer" onclick="svdefaultRenderer()">默认渲染</button>
+            <button type="button" class="button button-glow button-rounded button-highlight btn-renderer" name="sv_breakClassRenderer" id="sv_breakClassRenderer" onclick="svBreakClassRenderer()">分级渲染</button>
+            <button type="button" class="button button-glow button-rounded button-caution btn-renderer" name="sv_colorRampRenderer" id="sv_colorRampRenderer" onclick="svColorRampRenderer()">色带渲染</button>
+
+            <div id="changeBaseMap">
+                <div class="button-group">
+                    <button type="button" class="button button-pill button-action btn-changebasemap" name="satellite" id="satellite" onclick="styleToSatellite()"><span>影像图</span></button>
+                    <button type="button" class="button button-pill button-action btn-changebasemap" name="osm" id="osm" onclick="styleToOSM()"><span>地图</span></button>
+                    <button type="button" class="button button-pill button-action btn-changebasemap" name="terrain" id="terrain" onclick="styleToTerrain()"><span>地形图</span></button>
                 </div>
-                <div class="form-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">自身特征</span>
-                        <input type="text" id="level" class="form-control" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">街道肌理</span>
-                        <input type="text" id="cross" class="form-control" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">交通可达性</span>
-                        <input type="text" id="transform" class="form-control" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">功能混合度</span>
-                        <input type="text" id="diversity" class="form-control" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">功能密度</span>
-                        <input type="text" id="density" class="form-control" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">全局整合度</span>
-                        <input type="text" id="inte" class="form-control" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">全局选择度</span>
-                        <input type="text" id="nach" class="form-control" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-2"></div>
-                        <div class="col-md-4">
-                            <button type="submit" class="btn btn-primary btn-block">提交</button>
-                        </div>
-                        <div class="col-md-1"></div>
-                        <div class="col-md-4">
-                            <button type="reset" class="btn btn-warning btn-block">重置</button>
-                        </div>
-                        <div class="col-md-1"></div>
-                    </div>
-                </div>
-            </form>
-            <h2>风格切换</h2>
-            <div>
-                <button type="button" class="btn btn-primary" name="satellite" id="satellite" onclick="styleToSatellite()">satellite</button>
-                <button type="button" class="btn btn-success" name="osm" id="osm" onclick="styleToOSM()">osm</button>
-                <button type="button" class="btn btn-danger" name="streets-vector" id="streets-vector" onclick="styleToStreetsVector()">streets-vector</button>
-                <button type="button" class="btn btn-warning"name="terrain" id="terrain" onclick="styleToTerrain()">terrain</button>
             </div>
+
+            <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+            <div id="RadarChart" style="width: 350px;height:380px;"></div>
         </div>
         <div class = "col-9">
             <div id="viewDiv"></div>
